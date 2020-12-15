@@ -2,12 +2,12 @@ use druid::Color;
 use crate::zone::Zone;
 use crate::grid::GridPos;
 use std::cell::RefCell;
-use crate::building::Building;
+use crate::space::Building;
 use crate::room::Room;
 use crate::feature::Feature;
 
 /*
-    The base for zone, building, room and feature levels
+    The base for zone, space, room and feature levels
     has basic features like rendering in the given space,
     and more to be added later
  */

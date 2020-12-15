@@ -5,7 +5,7 @@
 mod grid;
 mod tile;
 mod zone;
-mod building;
+mod space;
 mod room;
 mod feature;
 mod util;

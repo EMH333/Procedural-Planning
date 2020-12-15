@@ -13,15 +13,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c23a1f29-cfb5-46d6-b49c-cc219c2c1ce1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/building.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/feature.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/grid.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/room.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tile.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/zone.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/building.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/space.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/room.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/room.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tile.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/tile.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +121,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607998649111</updated>
-      <workItem from="1607998651000" duration="8196000" />
+      <workItem from="1607998651000" duration="9643000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1607999426270</created>
@@ -133,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607999426270</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Start work on the info contained in the grid&#10;&#10;This adds Zones, Buildings, Rooms and Features. Those are the four levels of abstraction used to procedurally generate everything. Should have been set up in a way that tiles hold reference to everything that overlaps them, and all the base objects can be referenced by multiple tiles.">
+      <created>1608011231604</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608011231604</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +145,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Start work on the info contained in the grid&#10;&#10;This adds Zones, Buildings, Rooms and Features. Those are the four levels of abstraction used to procedurally generate everything. Should have been set up in a way that tiles hold reference to everything that overlaps them, and all the base objects can be referenced by multiple tiles." />
+    <option name="LAST_COMMIT_MESSAGE" value="Start work on the info contained in the grid&#10;&#10;This adds Zones, Buildings, Rooms and Features. Those are the four levels of abstraction used to procedurally generate everything. Should have been set up in a way that tiles hold reference to everything that overlaps them, and all the base objects can be referenced by multiple tiles." />
   </component>
 </project>

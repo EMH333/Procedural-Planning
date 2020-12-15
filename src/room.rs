@@ -8,7 +8,8 @@ use crate::util::point_inside_polygon;
 pub(crate) struct Room {
     room_type: Box<str>,
     uuid: u64,
-    points: Vec<GridPos>
+    points: Vec<GridPos>,
+    indoors: bool,
 }
 
 impl BaseLevel for Room {

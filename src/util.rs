@@ -45,6 +45,22 @@ pub(crate) fn point_inside_polygon(point: GridPos, vs: &Vec<GridPos>) -> bool {
     inside
 }
 
+pub struct UUIDCounter{
+    count: u64,
+}
+
+impl UUIDCounter {
+    pub fn new() -> UUIDCounter {
+        UUIDCounter {
+            count: 0
+        }
+    }
+    pub fn next_uuid(&mut self) -> u64 {
+        self.count += 1;
+        self.count.clone()
+    }
+}
+
 #[cfg(test)]
 mod tests {
     // Note this useful idiom: importing names from outer (for mod tests) scope.

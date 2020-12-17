@@ -24,3 +24,13 @@ impl BaseLevel for Zone {
         point_inside_polygon(point, &self.points)
     }
 }
+
+impl Zone {
+    pub fn new(uuid: u64) -> Zone {
+        Zone {
+            zone_type: Box::from("Base"),
+            uuid,
+            points: vec![]
+        }
+    }
+}

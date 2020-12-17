@@ -9,6 +9,7 @@ mod space;
 mod room;
 mod feature;
 mod util;
+mod generation;
 
 use std::ops::{Index, IndexMut};
 use std::time::{Duration, Instant};

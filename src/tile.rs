@@ -2,7 +2,7 @@ use druid::Color;
 use crate::zone::Zone;
 use crate::grid::GridPos;
 use std::cell::RefCell;
-use crate::space::Building;
+use crate::space::Space;
 use crate::room::Room;
 use crate::feature::Feature;
 
@@ -28,8 +28,8 @@ pub(crate) enum Direction {
     A physical location on the map
  */
 pub(crate) struct Tile {
-    zone: RefCell<Zone>,
-    building: RefCell<Building>,
-    room: RefCell<Room>,
-    base_feature: RefCell<Feature>
+    pub(crate) zone: RefCell<Zone>,
+    pub(crate) space: RefCell<Space>,
+    pub(crate) room: RefCell<Room>,
+    pub(crate) base_feature: RefCell<Feature>
 }

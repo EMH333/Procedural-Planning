@@ -25,3 +25,15 @@ impl BaseLevel for Feature {
         self.point.eq(&point) || self.sub_features.iter().any(|x| x.point.eq(&point))
     }
 }
+
+impl Feature {
+    pub fn new(uuid: u64, point: GridPos) -> Feature {
+        Feature {
+            feature_type: Box::from("Base"),
+            uuid,
+            facing: Direction::None,
+            sub_features: vec![],
+            point,
+        }
+    }
+}

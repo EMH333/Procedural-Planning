@@ -25,3 +25,14 @@ impl BaseLevel for Room {
         point_inside_polygon(point, &self.points)
     }
 }
+
+impl Room {
+    pub fn new(uuid: u64) -> Room {
+        Room {
+            room_type: Box::from("Base"),
+            uuid,
+            points: vec![],
+            indoors: false
+        }
+    }
+}

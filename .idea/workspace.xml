@@ -13,12 +13,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c23a1f29-cfb5-46d6-b49c-cc219c2c1ce1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/generation/config.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/generation/generator.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/generation/mod.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/building.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/space.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/feature.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/room.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/room.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/space.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/space.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tile.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/tile.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/util.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zone.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/zone.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +66,11 @@
     <property name="settings.editor.selected.configurable" value="ssh.settings" />
   </component>
   <component name="RunManager" selected="Cargo.Test">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="command" value="run --package Procedural-Planning --bin Procedural-Planning" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -87,24 +99,6 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
-      <option name="command" value="run" />
-      <option name="channel" value="DEFAULT" />
-      <option name="allFeatures" value="false" />
-      <option name="emulateTerminal" value="false" />
-      <option name="backtrace" value="SHORT" />
-      <envs />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Cargo.Run" />
       <item itemvalue="Cargo.Test" />
@@ -112,6 +106,7 @@
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
+    <option name="version" value="2" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -121,7 +116,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607998649111</updated>
-      <workItem from="1607998651000" duration="9643000" />
+      <workItem from="1607998651000" duration="10202000" />
+      <workItem from="1608158794398" duration="5466000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1607999426270</created>
@@ -137,7 +133,28 @@
       <option name="project" value="LOCAL" />
       <updated>1608011231604</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add README">
+      <created>1608012515537</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608012515537</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Rename building.rs to space.rs">
+      <created>1608012553308</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1608012553308</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add indoors-ability to rooms">
+      <created>1608012611789</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1608012611789</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,6 +163,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Start work on the info contained in the grid&#10;&#10;This adds Zones, Buildings, Rooms and Features. Those are the four levels of abstraction used to procedurally generate everything. Should have been set up in a way that tiles hold reference to everything that overlaps them, and all the base objects can be referenced by multiple tiles." />
-    <option name="LAST_COMMIT_MESSAGE" value="Start work on the info contained in the grid&#10;&#10;This adds Zones, Buildings, Rooms and Features. Those are the four levels of abstraction used to procedurally generate everything. Should have been set up in a way that tiles hold reference to everything that overlaps them, and all the base objects can be referenced by multiple tiles." />
+    <MESSAGE value="Add README" />
+    <MESSAGE value="Rename building.rs to space.rs" />
+    <MESSAGE value="Add indoors-ability to rooms" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add indoors-ability to rooms" />
   </component>
 </project>

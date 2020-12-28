@@ -19,7 +19,7 @@ pub(crate) struct GenerationConfig {
 }
 
 
-struct ZoneConfig {
+pub(crate) struct ZoneConfig {
     id: ZoneID,
     min_count: GenCount,
     max_count: GenCount,
@@ -30,7 +30,7 @@ struct ZoneConfig {
 }
 
 
-struct SpaceConfig {
+pub(crate) struct SpaceConfig {
     id: SpaceID,
     min_count: GenCount,
     max_count: GenCount,
@@ -42,7 +42,7 @@ struct SpaceConfig {
 }
 
 
-struct RoomConfig {
+pub(crate) struct RoomConfig {
     id: RoomID,
     min_count: GenCount,
     max_count: GenCount,
@@ -54,7 +54,7 @@ struct RoomConfig {
 }
 
 
-struct FeatureConfig {
+pub(crate) struct FeatureConfig {
     id: FeatureID,
     min_count: GenCount,
     max_count: GenCount,

@@ -1,6 +1,6 @@
 use crate::grid::{Grid, GridPos};
 use crate::generation::config::GenerationConfig;
-use std::sync::Arc;
+use std::sync::{Arc, Mutex};
 use crate::tile::Tile;
 use std::ops::Index;
 use std::cell::RefCell;
@@ -13,18 +13,18 @@ use num::integer::Roots;
 
 fn generate_map(config: GenerationConfig) -> Grid {
     let mut counter: UUIDCounter = UUIDCounter::new();
-    let base_zone = RefCell::from(Zone::new(counter.next_uuid()));
-    let base_space = RefCell::from(Space::new(counter.next_uuid()));
-    let base_room = RefCell::from(Room::new(counter.next_uuid()));
+    let base_zone = Arc::new(Mutex::new(Zone::new(counter.next_uuid())));
+    let base_space = Arc::new(Mutex::new(Space::new(counter.next_uuid())));
+    let base_room = Arc::new(Mutex::new(Room::new(counter.next_uuid())));
 
     let mut map: Vec<Tile> = Vec::with_capacity((config.map_size * config.map_size) as usize);
     for x in 0..config.map_size {
         for y in 0..config.map_size {
             map.set_tile(Tile {
-                zone: base_zone,//TODO switch RefCell out with Arc<Mutex<T>> which will handle this better
-                space: base_space,
-                room: base_room,
-                base_feature: RefCell::new(Feature::new(counter.next_uuid(), GridPos { row: y as usize, col: x as usize })),
+                zone: base_zone.clone(),
+                space: base_space.clone(),
+                room: base_room.clone(),
+                base_feature: Arc::new(Mutex::new(Feature::new(counter.next_uuid(), GridPos { row: y as usize, col: x as usize }))),
             }, x, y)
         }
     }

@@ -5,6 +5,7 @@ use std::cell::RefCell;
 use crate::space::Space;
 use crate::room::Room;
 use crate::feature::Feature;
+use std::sync::{Mutex, Arc};
 
 /*
     The base for zone, space, room and feature levels
@@ -28,8 +29,8 @@ pub(crate) enum Direction {
     A physical location on the map
  */
 pub(crate) struct Tile {
-    pub(crate) zone: RefCell<Zone>,
-    pub(crate) space: RefCell<Space>,
-    pub(crate) room: RefCell<Room>,
-    pub(crate) base_feature: RefCell<Feature>
+    pub(crate) zone: Arc<Mutex<Zone>>,
+    pub(crate) space: Arc<Mutex<Space>>,
+    pub(crate) room: Arc<Mutex<Room>>,
+    pub(crate) base_feature: Arc<Mutex<Feature>>
 }

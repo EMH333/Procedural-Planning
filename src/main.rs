@@ -24,6 +24,8 @@ use std::sync::Arc;
 
 use crate::grid::Grid;
 use crate::grid::GridPos;
+use crate::generation::config::GenerationConfig;
+use crate::generation::generator::generate_map;
 
 
 const GRID_SIZE: usize = 80;
@@ -319,6 +321,16 @@ pub fn main() {
             last_mouse_location: GridPos { row: 0, col: 0 },
         })
         .expect("launch failed");
+
+    //just to prevent more warnings
+    let config = GenerationConfig{
+        map_size: 0,
+        zones: vec![],
+        spaces: vec![],
+        rooms: vec![],
+        features: vec![]
+    };
+    generate_map(config);
 }
 
 impl Index<GridPos> for ColorScheme {

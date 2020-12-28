@@ -5,7 +5,7 @@ use std::collections::hash_map::DefaultHasher;
 use crate::grid::GridPos;
 use crate::util::point_inside_polygon;
 
-pub(crate) struct Room {
+pub struct Room {
     room_type: Box<str>,
     uuid: u64,
     points: Vec<GridPos>,
@@ -27,9 +27,9 @@ impl BaseLevel for Room {
 }
 
 impl Room {
-    pub fn new(uuid: u64) -> Room {
+    pub fn new(uuid: u64, name: Box<str>) -> Room {
         Room {
-            room_type: Box::from("Base"),
+            room_type: name,
             uuid,
             points: vec![],
             indoors: false

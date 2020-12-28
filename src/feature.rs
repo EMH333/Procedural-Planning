@@ -4,7 +4,7 @@ use std::hash::{Hash, Hasher};
 use std::collections::hash_map::DefaultHasher;
 use crate::grid::GridPos;
 
-pub(crate) struct Feature {
+pub struct Feature {
     feature_type: Box<str>,
     uuid: u64,
     facing: Direction,
@@ -27,9 +27,9 @@ impl BaseLevel for Feature {
 }
 
 impl Feature {
-    pub fn new(uuid: u64, point: GridPos) -> Feature {
+    pub fn new(uuid: u64, point: GridPos, name: Box<str>) -> Feature {
         Feature {
-            feature_type: Box::from("Base"),
+            feature_type: name,
             uuid,
             facing: Direction::None,
             sub_features: vec![],

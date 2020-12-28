@@ -1,2 +1,2 @@
-mod generator;
-mod config;
+pub(crate) mod generator;
+pub(crate) mod config;

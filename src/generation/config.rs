@@ -10,7 +10,7 @@ type SpaceID = String;
 type FeatureID = String;
 type RoomID = String;
 
-pub(crate) struct GenerationConfig {
+pub struct GenerationConfig {
     pub map_size: u32,
     pub zones: Vec<ZoneConfig>,
     pub spaces: Vec<SpaceConfig>,
@@ -19,8 +19,8 @@ pub(crate) struct GenerationConfig {
 }
 
 
-pub(crate) struct ZoneConfig {
-    id: ZoneID,
+pub struct ZoneConfig {
+    pub id: ZoneID,
     min_count: GenCount,
     max_count: GenCount,
     min_area: u32,
@@ -30,7 +30,7 @@ pub(crate) struct ZoneConfig {
 }
 
 
-pub(crate) struct SpaceConfig {
+pub struct SpaceConfig {
     id: SpaceID,
     min_count: GenCount,
     max_count: GenCount,
@@ -42,7 +42,7 @@ pub(crate) struct SpaceConfig {
 }
 
 
-pub(crate) struct RoomConfig {
+pub struct RoomConfig {
     id: RoomID,
     min_count: GenCount,
     max_count: GenCount,
@@ -54,7 +54,7 @@ pub(crate) struct RoomConfig {
 }
 
 
-pub(crate) struct FeatureConfig {
+pub struct FeatureConfig {
     id: FeatureID,
     min_count: GenCount,
     max_count: GenCount,

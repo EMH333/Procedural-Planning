@@ -11,9 +11,9 @@ pub(crate) struct Grid {
 }
 
 #[derive(Clone, Copy, PartialEq, Data)]
-pub(crate) struct GridPos {
-    pub(crate) row: usize,
-    pub(crate) col: usize,
+pub struct GridPos {
+    pub row: usize,
+    pub col: usize,
 }
 
 

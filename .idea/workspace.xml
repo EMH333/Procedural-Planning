@@ -1,52 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
-    <generated />
-  </component>
-  <component name="CMakeSettings">
-    <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
-    </configurations>
-  </component>
-  <component name="CargoProjects">
-    <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c23a1f29-cfb5-46d6-b49c-cc219c2c1ce1" name="Default Changelist" comment="">
+    <list default="true" id="e2005991-b368-47ae-aa47-d4af29c4c23a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Procedural-Planning.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/feature.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/feature.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generation/config.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/generation/config.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/generation/generator.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/generation/generator.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generation/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/generation/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/grid.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/grid.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/room.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/room.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/space.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/space.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/tile.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/zone.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/zone.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ClangdSettings">
-    <option name="formatViaClangd" value="false" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Rust File" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MacroExpansionManager">
-    <option name="directoryName" value="dx9gogff" />
-  </component>
-  <component name="ProjectId" id="1lfqm1dIvx6n2YMc61cDjZsByTJ" />
+  <component name="ProjectId" id="1olRM87QmYvq6oRY9gxIBKOq0S7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="compactDirectories" value="true" />
     <option name="flattenModules" value="true" />
@@ -57,127 +50,47 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="cf.first.check.clang-format" value="false" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
-    <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="ssh.settings" />
+    <property name="aspect.path.notification.shown" value="true" />
   </component>
-  <component name="RunManager" selected="Cargo.Test">
-    <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
-      <option name="command" value="run --package Procedural-Planning --bin Procedural-Planning" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <option name="channel" value="DEFAULT" />
-      <option name="allFeatures" value="false" />
-      <option name="emulateTerminal" value="false" />
-      <option name="backtrace" value="SHORT" />
-      <envs />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
-      <option name="command" value="test" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <option name="channel" value="DEFAULT" />
-      <option name="allFeatures" value="true" />
-      <option name="emulateTerminal" value="false" />
-      <option name="backtrace" value="SHORT" />
-      <envs />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
+    <configuration name="MainKt" type="JetRunConfigurationType" nameIsGenerated="true">
+      <module name="Procedural-Planning.main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="MainKt" />
+      <option name="WORKING_DIRECTORY" />
       <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Cargo.Run" />
-      <item itemvalue="Cargo.Test" />
-    </list>
-  </component>
-  <component name="RustProjectSettings">
-    <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
-    <option name="version" value="2" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c23a1f29-cfb5-46d6-b49c-cc219c2c1ce1" name="Default Changelist" comment="" />
-      <created>1607998649111</created>
+      <changelist id="e2005991-b368-47ae-aa47-d4af29c4c23a" name="Default Changelist" comment="" />
+      <created>1613859141181</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1607998649111</updated>
-      <workItem from="1607998651000" duration="10202000" />
-      <workItem from="1608158794398" duration="5534000" />
-      <workItem from="1609189160340" duration="557000" />
-      <workItem from="1609189730738" duration="3089000" />
+      <updated>1613859141181</updated>
+      <workItem from="1613859143442" duration="70000" />
     </task>
-    <task id="LOCAL-00001" summary="Initial commit">
-      <created>1607999426270</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1607999426270</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Start work on the info contained in the grid&#10;&#10;This adds Zones, Buildings, Rooms and Features. Those are the four levels of abstraction used to procedurally generate everything. Should have been set up in a way that tiles hold reference to everything that overlaps them, and all the base objects can be referenced by multiple tiles.">
-      <created>1608011231604</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1608011231604</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Add README">
-      <created>1608012515537</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1608012515537</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Rename building.rs to space.rs">
-      <created>1608012553308</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1608012553308</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Add indoors-ability to rooms">
-      <created>1608012611789</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1608012611789</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Started work on generation code&#10;&#10;CODE DOESN't COMPILE IN CURRENT STATE">
-      <created>1608164320676</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1608164320676</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Fix compile errors">
-      <created>1609189702969</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1609189702969</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial commit" />
-    <MESSAGE value="Start work on the info contained in the grid&#10;&#10;This adds Zones, Buildings, Rooms and Features. Those are the four levels of abstraction used to procedurally generate everything. Should have been set up in a way that tiles hold reference to everything that overlaps them, and all the base objects can be referenced by multiple tiles." />
-    <MESSAGE value="Add README" />
-    <MESSAGE value="Rename building.rs to space.rs" />
-    <MESSAGE value="Add indoors-ability to rooms" />
-    <MESSAGE value="Started work on generation code" />
-    <MESSAGE value="Started work on generation code&#10;&#10;CODE DOESN't COMPILE IN CURRENT STATE" />
-    <MESSAGE value="Fix compile errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix compile errors" />
   </component>
 </project>

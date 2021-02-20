@@ -2,28 +2,38 @@ use crate::grid::GridPos;
 use crate::generation::config::GenerationConfig;
 use std::sync::{Arc, Mutex};
 use crate::tile::Tile;
-use std::ops::Index;
+use std::ops::{Index, IndexMut, DerefMut, Deref};
 use crate::room::Room;
 use crate::zone::Zone;
 use crate::space::Space;
 use crate::feature::Feature;
 use crate::util::UUIDCounter;
 use num::integer::Roots;
+use std::borrow::{Borrow, BorrowMut};
 
 pub fn generate_map(config: GenerationConfig) -> Vec<Tile> {
     let map_size = config.map_size;
     let mut counter: UUIDCounter = UUIDCounter::new();
 
-    let map = base_map(map_size, &mut counter);
+    let mut map = base_map(map_size, &mut counter);
 
     //super simple zone generation
     let mut zones = config.zones.iter();
     for x in 0..map_size {
         if config.zones.len() > x as usize {
             let zone = zones.next().unwrap().clone();
-            let tile = map.get_tile(x, 0);
-            let mut t_zone = tile.zone.lock().expect("Couldn't lock zone mutex");
-            *t_zone =  Zone::new(counter.next_uuid(), Box::from(zone.id.clone()));
+            let new_zone = Arc::new(Mutex::new(
+                Zone::new(counter.next_uuid(), Box::from(zone.id.clone()))
+            ));
+
+            for y in 0..map_size {
+                let mut tile = map.get_tile(x, y).borrow_mut();
+                //let mut t_zone = tile.zone.lock().expect("Couldn't lock zone mutex");
+                //let mut idk = Arc::try_unwrap(tile.zone).unwrap_or(Mutex::new()).into_inner().unwrap();
+                drop(*tile.zone);
+                map.get_tile(x, y).zone = new_zone.clone();
+                //std::mem::drop(tile.zone)
+            }
         }
     }
 
@@ -53,14 +63,14 @@ fn base_map(map_size: u32, counter: &mut UUIDCounter) -> Vec<Tile> {
 }
 
 trait TileStore {
-    fn get_tile(&self, x: u32, y: u32) -> &Tile;
+    fn get_tile(&mut self, x: u32, y: u32) -> &mut Tile;
     fn set_tile(&mut self, tile: Tile, x: u32, y: u32);
 }
 
 impl TileStore for Vec<Tile> {
-    fn get_tile(&self, x: u32, y: u32) -> &Tile {
+    fn get_tile(&mut self, x: u32, y: u32) -> &mut Tile {
         let size = self.capacity().sqrt();
-        self.index((y as usize * size) + x as usize)
+        self.index_mut((y as usize * size) + x as usize)
     }
 
     fn set_tile(&mut self, tile: Tile, x: u32, y: u32) {

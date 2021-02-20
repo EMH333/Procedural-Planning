@@ -1,7 +1,7 @@
 package tiles
 
 class Grid {
-    public val grid: ArrayList<ArrayList<GridPos>> = ArrayList(ArrayList())
+    public val grid: ArrayList<ArrayList<GridPos>> = ArrayList()
     fun getGridPos(x: Int, y: Int): GridPos {
         return grid[x][y]
     }
@@ -12,10 +12,16 @@ class Grid {
 
     fun generateGrid(size: Int) {
         for (x in 0..size) {
+            grid.add(x, ArrayList())
+            grid[x].ensureCapacity(size)
             for (y in 0..size) {
-                grid[x][y] = GridPos(y, x)
+                grid[x].add(GridPos(y, x))
             }
         }
+    }
+
+    override fun toString(): String {
+        return "Grid(grid=$grid)"
     }
 }
 

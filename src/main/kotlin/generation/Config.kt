@@ -1,14 +1,14 @@
 package generation
 
 //placement priority
-typealias Priority = Int;
+typealias Priority = Int
 //placement count
-typealias GenCount = Int;
+typealias GenCount = Int
 
-typealias ZoneID = String;
-typealias SpaceID = String;
-typealias FeatureID = String;
-typealias RoomID = String;
+typealias ZoneID = String
+typealias SpaceID = String
+typealias FeatureID = String
+typealias RoomID = String
 
 
 data class GenerationConfig(
@@ -46,12 +46,12 @@ data class GenerationConfig(
 
 data class ZoneConfig(
     val id: ZoneID,
-    val min_count: GenCount,
-    val max_count: GenCount,
-    val min_area: Int,
-    val max_area: Int,
-    val must_be_near: HashMap<ZoneID, Priority>,
-    val must_not_be_near: HashMap<ZoneID, Priority>,
+    val min_count: GenCount = 0,
+    val max_count: GenCount = GenCount.MAX_VALUE,
+    val min_area: Int = 0,
+    val max_area: Int = Int.MAX_VALUE,
+    val must_be_near: HashMap<ZoneID, Priority>? = null,
+    val must_not_be_near: HashMap<ZoneID, Priority>? = null,
 )
 
 

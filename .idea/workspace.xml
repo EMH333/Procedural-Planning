@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2005991-b368-47ae-aa47-d4af29c4c23a" name="Default Changelist" comment="Reach feature parity with rust version">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/generation/Generator.kt" afterDir="false" />
+    <list default="true" id="e2005991-b368-47ae-aa47-d4af29c4c23a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/generation/BooleanGrid.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/generation/Noise.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/generation/Config.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/generation/Config.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/tiles/Grid.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/tiles/Grid.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/tiles/Tile.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/tiles/Tile.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Data Class" />
-        <option value="Kotlin File" />
         <option value="JUnit5 Test Class" />
+        <option value="Kotlin File" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -110,7 +108,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1613859141181</updated>
-      <workItem from="1613859143442" duration="4307000" />
+      <workItem from="1613859143442" duration="7601000" />
     </task>
     <task id="LOCAL-00001" summary="Start move to Kotlin">
       <created>1613859500535</created>
@@ -126,7 +124,28 @@
       <option name="project" value="LOCAL" />
       <updated>1613862176530</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Reach feature parity with rust version">
+      <created>1613863459867</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1613863459867</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Remove rust version">
+      <created>1613863487004</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1613863487004</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Re-add README file">
+      <created>1613863539060</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1613863539060</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +155,8 @@
     <MESSAGE value="Start move to Kotlin" />
     <MESSAGE value="Initial kotlin implementation minus generation" />
     <MESSAGE value="Reach feature parity with rust version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reach feature parity with rust version" />
+    <MESSAGE value="Remove rust version" />
+    <MESSAGE value="Re-add README file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Re-add README file" />
   </component>
 </project>

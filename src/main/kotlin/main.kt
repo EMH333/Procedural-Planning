@@ -1,3 +1,4 @@
+import com.github.michaelbull.result.unwrap
 import generation.*
 
 fun main(args: Array<String>) {
@@ -21,7 +22,8 @@ fun main(args: Array<String>) {
     val grid = gen.generateMap(config)
     println(grid)
     println("\n\n\n\n\n")
-    var booleanNoise = createMap(500,8, 20)
+    var booleanNoise = createMap(10,8, 20)
     booleanNoise = groupMap(booleanNoise, 4)
+    println(booleanNoise.findArea(3).unwrap())
     println(booleanNoise)
 }

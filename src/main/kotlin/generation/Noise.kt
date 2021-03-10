@@ -42,13 +42,13 @@ fun groupMap(grid: BooleanGrid, minAround: Int = 4): BooleanGrid {
         }
 
         if (oldGrid.getPos(pos.up(size))) count++
-        if (oldGrid.getPos(pos.down())) count++
+        if (oldGrid.getPos(pos.down(1))) count++
         if (oldGrid.getPos(pos.left())) count++
-        if (oldGrid.getPos(pos.right(size))) count++
+        if (oldGrid.getPos(pos.right(1, size))) count++
         if (oldGrid.getPos(pos.up(size).left())) count++
-        if (oldGrid.getPos(pos.down().right(size))) count++
-        if (oldGrid.getPos(pos.left().down())) count++
-        if (oldGrid.getPos(pos.right(size).up(size))) count++
+        if (oldGrid.getPos(pos.down(1).right(1, size))) count++
+        if (oldGrid.getPos(pos.left().down(1))) count++
+        if (oldGrid.getPos(pos.right(1, size).up(size))) count++
 
         count > minAround
     }

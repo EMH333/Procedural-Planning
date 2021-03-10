@@ -1,5 +1,6 @@
 package tiles
 
+import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
@@ -30,22 +31,26 @@ class Grid {
 
 data class GridPos(val row: Int, val col: Int, var tile: Tile? = null) {
     fun posEquals(gridPos: GridPos): Boolean {
-        return row == gridPos.row && col == col
+        return row == gridPos.row && col == gridPos.col
     }
 
     fun left(min: Int = 0): GridPos {
         return GridPos(row, max(col - 1, min), tile)
     }
 
-    fun right(max: Int = Int.MAX_VALUE): GridPos {
-        return GridPos(row, min(col + 1, max), tile)
+    fun right(distance: Int = 1, max: Int = Int.MAX_VALUE): GridPos {
+        return GridPos(row, min(col + distance, max), tile)
     }
 
     fun up(max: Int = Int.MAX_VALUE): GridPos {
         return GridPos(min(row + 1, max), col, tile)
     }
 
-    fun down(min: Int = 0): GridPos {
-        return GridPos(max(row - 1, min), col, tile)
+    fun down(distance: Int = 1, min: Int = 0): GridPos {
+        return GridPos(max(row - distance, min), col, tile)
+    }
+
+    fun area(gridPos: GridPos): Int {
+        return (abs(row - gridPos.row) + 1) * (abs(col - gridPos.col) + 1)
     }
 }

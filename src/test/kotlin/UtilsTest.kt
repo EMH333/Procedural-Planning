@@ -38,4 +38,15 @@ internal class UtilsTest {
             )
         )
     }
+
+    @Test
+    fun areaOfPolygon() {
+        val points = listOf(
+            GridPos(1, 1),
+            GridPos(-1, 1),
+            GridPos(-1, -1),
+            GridPos(1, -1)
+        )
+        assertEquals(4, areaOfPolygon(points).toInt())
+    }
 }

@@ -31,3 +31,27 @@ fun createMap(size: Int, follow: Int = 8, trigger: Int = 0, seed: Int = (Math.ra
 
     return grid
 }
+
+fun groupMap(grid: BooleanGrid, minAround: Int = 4): BooleanGrid {
+    val size = grid.size
+    grid.forEachWithStableGrid { set, pos, oldGrid ->
+        var count = if (set) {
+            1
+        } else {
+            0
+        }
+
+        if (oldGrid.getPos(pos.up(size))) count++
+        if (oldGrid.getPos(pos.down())) count++
+        if (oldGrid.getPos(pos.left())) count++
+        if (oldGrid.getPos(pos.right(size))) count++
+        if (oldGrid.getPos(pos.up(size).left())) count++
+        if (oldGrid.getPos(pos.down().right(size))) count++
+        if (oldGrid.getPos(pos.left().down())) count++
+        if (oldGrid.getPos(pos.right(size).up(size))) count++
+
+        count > minAround
+    }
+
+    return grid
+}

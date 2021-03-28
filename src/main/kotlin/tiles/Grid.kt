@@ -24,6 +24,10 @@ class Grid {
         }
     }
 
+    fun maxDimension(): Int {
+        return grid.size
+    }
+
     override fun toString(): String {
         return "Grid(grid=$grid)"
     }

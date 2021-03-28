@@ -1,5 +1,5 @@
-import com.github.michaelbull.result.unwrap
 import generation.*
+import java.awt.EventQueue
 
 fun main(args: Array<String>) {
     println("Hello World")
@@ -22,8 +22,13 @@ fun main(args: Array<String>) {
     val grid = gen.generateMap(config)
     println(grid)
     println("\n\n\n\n\n")
-    var booleanNoise = createMap(10,8, 20)
-    booleanNoise = groupMap(booleanNoise, 4)
-    println(booleanNoise.findArea(3).unwrap())
-    println(booleanNoise)
+    //var booleanNoise = createMap(10,8, 20)
+    //booleanNoise = groupMap(booleanNoise, 4)
+    //println(booleanNoise.findArea(3).unwrap())
+    //println(booleanNoise)
+
+    EventQueue.invokeLater {
+        val game = GraphicalInterface(grid)
+        game.isVisible = true
+    }
 }

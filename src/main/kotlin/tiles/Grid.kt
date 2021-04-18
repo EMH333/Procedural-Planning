@@ -54,6 +54,15 @@ data class GridPos(val row: Int, val col: Int, var tile: Tile? = null) {
         return GridPos(max(row - distance, min), col, tile)
     }
 
+    fun copyWithRow(newRow: Int): GridPos {
+        return GridPos(newRow, this.col)
+    }
+
+    fun copyWithCol(newCol: Int): GridPos {
+        return GridPos(this.row, newCol)
+    }
+
+
     fun area(gridPos: GridPos): Int {
         return (abs(row - gridPos.row) + 1) * (abs(col - gridPos.col) + 1)
     }

@@ -35,6 +35,17 @@ class BooleanGrid(val size: Int, fillFalse: Boolean = true) {
         initalized = true
     }
 
+    /***
+     * Set all squares to true so it is a valid spot
+     */
+    fun allowAll() {
+        for (x in 0..size) {
+            for (y in 0..size) {
+                setPos(x, y)
+            }
+        }
+    }
+
     fun setPos(x: Int, y: Int) {
         grid[x][y] = true
     }
@@ -77,26 +88,31 @@ class BooleanGrid(val size: Int, fillFalse: Boolean = true) {
     }
 
     fun findArea(area: Int): Result<Pair<GridPos, GridPos>, Error> {
-        val square = findSquareArea(area)
+        val fixedArea = if (area <= 0) {
+            1
+        } else {
+            area
+        }
+        val square = findSquareArea(fixedArea)
         val first = square.first
         if (first.col == -1) {
             return Err(Error("No square with that size"))
         }
         //if perfect fit
-        val areaSide = sqrt(area.toDouble()).toInt()
-        if (areaSide * areaSide == area) {
+        val areaSide = sqrt(fixedArea.toDouble()).toInt()
+        if (areaSide * areaSide == fixedArea) {
             return Ok(Pair(first, first.down(areaSide).right(areaSide)))
         }
         var second = first.down(areaSide).right(areaSide)
-        val areaGood = fun():Boolean{return first.area(second) > area}
-        while(areaGood()){
+        val areaGood = fun(): Boolean { return first.area(second) > fixedArea }
+        while (areaGood()) {
             second = second.left()
-            if (!areaGood()){
+            if (!areaGood()) {
                 second.right()
                 break
             }
             second = second.up()
-            if (!areaGood()){
+            if (!areaGood()) {
                 second.down()
                 break
             }

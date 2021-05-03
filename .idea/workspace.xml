@@ -9,14 +9,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2005991-b368-47ae-aa47-d4af29c4c23a" name="Default Changelist" comment="Add boolean grid to generation workflow">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/generation/EqualDistribution.kt" afterDir="false" />
+    <list default="true" id="e2005991-b368-47ae-aa47-d4af29c4c23a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/generation/BooleanGrid.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/generation/BooleanGrid.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/generation/Generator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/generation/Generator.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/tiles/GridPositionIterator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/tiles/GridPositionIterator.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/generation/BooleanGridTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/generation/BooleanGridTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/tiles/GridPositionIteratorTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/tiles/GridPositionIteratorTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +157,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MainKt">
+  <component name="RunManager" selected="JUnit.Tests">
     <configuration name="Tests" type="JUnit" factoryName="JUnit">
       <module name="Procedural-Planning.test" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -209,7 +206,7 @@
       <workItem from="1619894954047" duration="1404000" />
       <workItem from="1619929014440" duration="1305000" />
       <workItem from="1619980696070" duration="3332000" />
-      <workItem from="1620016734258" duration="598000" />
+      <workItem from="1620016734258" duration="1942000" />
     </task>
     <task id="LOCAL-00001" summary="Start move to Kotlin">
       <created>1613859500535</created>
@@ -302,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619930243975</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Attempt to intelligently distribute space among the different zones&#10;&#10;Uses a simple algorithm to maximize the size of each zone while respecting the zones it is competing with. There are better ways to do this but it seems to work fine for what I am doing.">
+      <created>1620017472385</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1620017472385</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,6 +326,18 @@
     <MESSAGE value="Add a simple GUI to ease viewing layouts" />
     <MESSAGE value="Add a grid position iterator" />
     <MESSAGE value="Add boolean grid to generation workflow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add boolean grid to generation workflow" />
+    <MESSAGE value="Attempt to intelligently distribute space among the different zones&#10;&#10;Uses a simple algorithm to maximize the size of each zone while respecting the zones it is competing with. There are better ways to do this but it seems to work fine for what I am doing." />
+    <option name="LAST_COMMIT_MESSAGE" value="Attempt to intelligently distribute space among the different zones&#10;&#10;Uses a simple algorithm to maximize the size of each zone while respecting the zones it is competing with. There are better ways to do this but it seems to work fine for what I am doing." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/generation/Generator.kt</url>
+          <line>42</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

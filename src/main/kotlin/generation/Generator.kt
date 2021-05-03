@@ -39,6 +39,9 @@ class Generator {
 
             //add zone to grid
             for (a in GridPositionIterator(area.first, area.second)) {
+                if(a.col > 50 || a.row > 50){
+                    println("IDK")
+                }
                 val gridPos = grid.getGridPos(a.col, a.row)
                 if (gridPos.tile == null) {
                     gridPos.tile = Tile(zone = zone)

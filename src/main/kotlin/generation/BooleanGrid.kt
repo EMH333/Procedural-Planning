@@ -14,9 +14,9 @@ class BooleanGrid(val size: Int, fillFalse: Boolean = true) {
 
     init {
         if (!initalized) {
-            for (x in 0..size) {
+            for (x in 0 until size) {
                 grid.add(ArrayList())
-                for (y in 0..size) {
+                for (y in 0 until size) {
                     grid[x].add(false)
                 }
             }
@@ -25,9 +25,9 @@ class BooleanGrid(val size: Int, fillFalse: Boolean = true) {
     }
 
     constructor(bg: BooleanGrid) : this(bg.size, false) {
-        for (x in 0..size) {
+        for (x in 0 until size) {
             grid.add(ArrayList())
-            for (y in 0..size) {
+            for (y in 0 until size) {
                 val old = bg.getPos(x, y)
                 grid[x].add(old)
             }
@@ -39,8 +39,8 @@ class BooleanGrid(val size: Int, fillFalse: Boolean = true) {
      * Set all squares to true so it is a valid spot
      */
     fun allowAll() {
-        for (x in 0..size) {
-            for (y in 0..size) {
+        for (x in 0 until size) {
+            for (y in 0 until size) {
                 setPos(x, y)
             }
         }
@@ -103,7 +103,7 @@ class BooleanGrid(val size: Int, fillFalse: Boolean = true) {
         if (areaSide * areaSide == fixedArea) {
             return Ok(Pair(first, first.down(areaSide).right(areaSide)))
         }
-        var second = first.down(areaSide).right(areaSide)
+        var second = first.down(areaSide).right(areaSide, this.size-1)
         val areaGood = fun(): Boolean { return first.area(second) > fixedArea }
         while (areaGood()) {
             second = second.left()
@@ -170,8 +170,8 @@ class BooleanGrid(val size: Int, fillFalse: Boolean = true) {
 
     fun countOfOpenPos(): Int {
         var count = 0
-        for (x in 0..size) {
-            for (y in 0..size) {
+        for (x in 0 until size) {
+            for (y in 0 until size) {
                 if (getPos(x, y)) {
                     count++
                 }
@@ -182,8 +182,8 @@ class BooleanGrid(val size: Int, fillFalse: Boolean = true) {
 
     override fun toString(): String {
         val sb = StringBuilder()
-        for (y in 0..size) {
-            for (x in 0..size) {
+        for (y in 0 until size) {
+            for (x in 0 until size) {
                 if (getPos(x, y)) {
                     sb.append("x")
                 } else {

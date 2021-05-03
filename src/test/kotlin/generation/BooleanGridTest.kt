@@ -29,4 +29,12 @@ internal class BooleanGridTest {
 
         assertTrue(result.unwrap().first.area(result.unwrap().second) >= 4) // area greater than requested
     }
+
+    @Test
+    fun countOfPosTest() {
+        val grid = BooleanGrid(5)
+        assertEquals(0, grid.countOfOpenPos())
+        grid.allowAll()
+        assertEquals(36, grid.countOfOpenPos()) //TODO: This hints at a larger problem
+    }
 }

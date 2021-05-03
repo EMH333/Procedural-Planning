@@ -14,24 +14,32 @@ class Generator {
         val zoneIter = config.zones.iterator()
         val zoneGrid = BooleanGrid(config.map_size)
         zoneGrid.allowAll() // allow placement anywhere
-        for (x in 0..config.map_size) {
-            if (!zoneIter.hasNext()) {
-                break
-            }
+
+        val zoneDistributionPreData = HashMap<String, Pair<Int, Int>>()
+        config.zones.forEach {
+            zoneDistributionPreData[it.id] = Pair(it.min_area, it.max_area)
+        }
+        val zoneDistributionRec = EqualDistribution.distributeWithMaxAndMin(zoneGrid.countOfOpenPos(), zoneDistributionPreData)
+
+        while (zoneIter.hasNext()) {
             val zoneConfig = zoneIter.next()
             val zone = Zone(zoneConfig.id)
 
 
-            //if max area doesn't work, find with min area instead
-            var output = zoneGrid.findArea(zoneConfig.max_area)
-            output = output.recover {
-                zoneGrid.findArea(zoneConfig.min_area).unwrap()
+            //Try recommended area, then max, then min
+            val tryRec = zoneDistributionRec[zoneConfig.id]!!
+            var output = zoneGrid.findArea(tryRec)
+            output.onFailure {
+                output = zoneGrid.findArea(zoneConfig.max_area)
+            }
+            output.onFailure {
+                output = zoneGrid.findArea(zoneConfig.min_area)
             }
             val area = output.unwrap()
 
             //add zone to grid
-            for(a in GridPositionIterator(area.first, area.second)){
-                val gridPos = grid.getGridPos(a.col,a.row)
+            for (a in GridPositionIterator(area.first, area.second)) {
+                val gridPos = grid.getGridPos(a.col, a.row)
                 if (gridPos.tile == null) {
                     gridPos.tile = Tile(zone = zone)
                 } else {

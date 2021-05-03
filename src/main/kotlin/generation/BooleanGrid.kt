@@ -168,6 +168,18 @@ class BooleanGrid(val size: Int, fillFalse: Boolean = true) {
         }
     }
 
+    fun countOfOpenPos(): Int {
+        var count = 0
+        for (x in 0..size) {
+            for (y in 0..size) {
+                if (getPos(x, y)) {
+                    count++
+                }
+            }
+        }
+        return count
+    }
+
     override fun toString(): String {
         val sb = StringBuilder()
         for (y in 0..size) {

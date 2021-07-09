@@ -4,6 +4,8 @@ import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.Result
 import tiles.GridPos
+import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.math.min
 import kotlin.math.sqrt
 
@@ -93,59 +95,92 @@ class BooleanGrid(val size: Int, fillFalse: Boolean = true) {
         } else {
             area
         }
-        val square = findSquareArea(fixedArea)
-        val first = square.first
-        if (first.col == -1) {
-            return Err(Error("No square with that size"))
+        val rect = findMaxRect()
+
+        //make sure the rect is big enough
+        if (rect.first < fixedArea) {
+            return Err(Error("There is no space big enough"))
         }
+
+        val first = rect.second.first
+        var second = rect.second.second
         //if perfect fit
-        val areaSide = sqrt(fixedArea.toDouble()).toInt()
-        if (areaSide * areaSide == fixedArea) {
-            return Ok(Pair(first, first.down(areaSide).right(areaSide)))
+        if (first.area(second) == fixedArea) {
+            return Ok(Pair(first, second))
         }
-        var second = first.down(areaSide).right(areaSide, this.size-1)
+
+        // else resize till we are just above the acceptable area
         val areaGood = fun(): Boolean { return first.area(second) > fixedArea }
         while (areaGood()) {
             second = second.left()
             if (!areaGood()) {
-                second.right()
+                second = second.right()
                 break
             }
             second = second.up()
             if (!areaGood()) {
-                second.down()
+                second = second.down()
                 break
             }
         }
         return Ok(Pair(first, second))
     }
 
+    private fun updateRectCache(cache: IntArray, col: Int, MaxX: Int): IntArray {
+        for (m in 0 until MaxX) {
+            //if unavailable...
+            if (!getPos(col, m)) {
+                cache[m] = 0
+            } else {
+                cache[m]++
+            }
+        }
+        return cache
+    }
+
     /**
-     * finds a square at least the size of the one specified and a pair containing the max size and it's start point
-     * The points returned are the top left of the square
+     * Returns a pair w/ max area and a set of points (lower left, upper right)
      */
-    private fun findSquareArea(area: Int): Pair<GridPos, Pair<Int, GridPos>> {
-        var maxSide = 0
-        var maxPos = GridPos(-1, -1)
-        var found = GridPos(-1, -1)
-        val dp = Array(size) { IntArray(size) }
-        for (i in 0 until size) {
-            for (j in 0 until size) {
-                if (!getPos(i, j)) continue
-                if (i == 0 || j == 0) dp[i][j] = 1 else {
-                    dp[i][j] = min(dp[i][j - 1], dp[i - 1][j])
-                    dp[i][j] = 1 + min(dp[i][j], dp[i - 1][j - 1])
-                }
-                if (dp[i][j] > maxSide) {
-                    maxSide = dp[i][j]
-                    maxPos = GridPos(j, i)
-                }
-                if (dp[i][j] * dp[i][j] >= area && found.col == -1) {
-                    found = GridPos(j, i)
+    fun findMaxRect():Pair<Int, Pair<GridPos, GridPos>> {
+        var bestLl = GridPos(0, 0)
+        var bestUr = GridPos(-1, -1)
+        var bestArea = 0
+        val maxX: Int = size - 1
+        val maxY = maxX
+        val stack = Stack<GridPos>()
+        var cache = IntArray(maxX + 1)
+        for (m in 0 until maxX + 1) {
+            cache[m] = 0
+        }
+        for (n in 0 until maxY) {
+            var openWidth = 0
+            cache = updateRectCache(cache, n, maxX)
+            for (m in 0 until maxX + 1) {
+                if (cache[m] > openWidth) {
+                    stack.push(GridPos(openWidth, m))
+                    openWidth = cache[m]
+                } else if (cache[m] < openWidth) {
+                    var area: Int
+                    var p: GridPos
+                    do {
+                        p = stack.pop()
+                        area = openWidth * (m - p.col)
+                        if (area > bestArea) {
+                            bestArea = area
+                            bestLl = GridPos(n, p.col)
+                            bestUr = GridPos(n - openWidth + 1, m-1)
+                        }
+                        openWidth = p.row
+                    } while (cache[m] < openWidth)
+                    openWidth = cache[m]
+                    if (openWidth != 0) {
+                        stack.push(p)
+                    }
                 }
             }
         }
-        return Pair(found, Pair(maxSide * maxSide, maxPos))
+
+        return Pair(bestArea, Pair(bestLl.up().right(), bestUr.up().right()))
     }
 
     private fun isPosInBlocklist(pos: GridPos): Boolean {

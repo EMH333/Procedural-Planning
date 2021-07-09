@@ -25,7 +25,6 @@ class Generator {
             val zoneConfig = zoneIter.next()
             val zone = Zone(zoneConfig.id)
 
-
             //Try recommended area, then max, then min
             val tryRec = zoneDistributionRec[zoneConfig.id]!!
             var output = zoneGrid.findArea(tryRec)
@@ -39,7 +38,7 @@ class Generator {
 
             //add zone to grid
             for (a in GridPositionIterator(area.first, area.second)) {
-                if(a.col > 50 || a.row > 50){
+                if (a.col > 50 || a.row > 50) {
                     println("IDK")
                 }
                 val gridPos = grid.getGridPos(a.col, a.row)
@@ -54,18 +53,6 @@ class Generator {
             //add to boolean grid
             zoneGrid.addToBlocklist(area.first, area.second)
 
-            /*for (y in 0..config.map_size) {
-                //don't go on any longer if max area will be reached
-                if (y > zoneConfig.max_area) break
-
-                val gridPos = grid.getGridPos(x, y)
-                if (gridPos.tile == null) {
-                    gridPos.tile = Tile(zone = zone)
-                } else {
-                    gridPos.tile!!.zone = zone
-                }
-                grid.setGridPos(x, y, gridPos.tile!!)
-            }*/
         }
 
         return grid

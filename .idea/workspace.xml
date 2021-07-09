@@ -10,9 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2005991-b368-47ae-aa47-d4af29c4c23a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/generation/BooleanGridRect.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/generation/BooleanGrid.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/generation/BooleanGrid.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/generation/Generator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/generation/Generator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/generation/BooleanGridTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/generation/BooleanGridTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,10 +107,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Data Class" />
-        <option value="Kotlin File" />
         <option value="Kotlin Class" />
         <option value="JUnit5 Test Class" />
         <option value="Kotlin Object" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -138,6 +140,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/kotlin/tiles" />
@@ -157,7 +160,20 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Tests">
+  <component name="RunManager" selected="Kotlin.MainKt">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tests" type="JUnit" factoryName="JUnit">
       <module name="Procedural-Planning.test" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -177,6 +193,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="generation.Test" />
+      <module name="Procedural-Planning.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin.Test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -206,7 +234,17 @@
       <workItem from="1619894954047" duration="1404000" />
       <workItem from="1619929014440" duration="1305000" />
       <workItem from="1619980696070" duration="3332000" />
-      <workItem from="1620016734258" duration="1942000" />
+      <workItem from="1620016734258" duration="2054000" />
+      <workItem from="1620703010530" duration="6000" />
+      <workItem from="1621205472312" duration="60000" />
+      <workItem from="1621206402115" duration="625000" />
+      <workItem from="1621279230693" duration="4000" />
+      <workItem from="1622919957726" duration="1526000" />
+      <workItem from="1623026576003" duration="7000" />
+      <workItem from="1624161112956" duration="22000" />
+      <workItem from="1624170715227" duration="6000" />
+      <workItem from="1624210453039" duration="2527000" />
+      <workItem from="1625865063416" duration="1845000" />
     </task>
     <task id="LOCAL-00001" summary="Start move to Kotlin">
       <created>1613859500535</created>
@@ -306,7 +344,21 @@
       <option name="project" value="LOCAL" />
       <updated>1620017472385</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Solve off by one error in boolean grid&#10;&#10;Still have a problem with larger areas but it's something that can be solved later without much change">
+      <created>1620018778347</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1620018778347</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Small fixes">
+      <created>1625865395059</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1625865395059</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,17 +379,8 @@
     <MESSAGE value="Add a grid position iterator" />
     <MESSAGE value="Add boolean grid to generation workflow" />
     <MESSAGE value="Attempt to intelligently distribute space among the different zones&#10;&#10;Uses a simple algorithm to maximize the size of each zone while respecting the zones it is competing with. There are better ways to do this but it seems to work fine for what I am doing." />
-    <option name="LAST_COMMIT_MESSAGE" value="Attempt to intelligently distribute space among the different zones&#10;&#10;Uses a simple algorithm to maximize the size of each zone while respecting the zones it is competing with. There are better ways to do this but it seems to work fine for what I am doing." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/generation/Generator.kt</url>
-          <line>42</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Solve off by one error in boolean grid&#10;&#10;Still have a problem with larger areas but it's something that can be solved later without much change" />
+    <MESSAGE value="Small fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small fixes" />
   </component>
 </project>

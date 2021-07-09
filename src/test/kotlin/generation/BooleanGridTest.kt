@@ -1,5 +1,6 @@
 package generation
 
+import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.unwrap
 import org.junit.jupiter.api.Test
@@ -53,6 +54,33 @@ internal class BooleanGridTest {
         val area = result.unwrap().first.area(result.unwrap().second)
         assertTrue(area >= requestedArea, "Area was: $area") // area greater than requested
     }
+
+    @Test
+    fun noAreaLargeEnough() {
+        val gridSize = 5
+        val requestedArea = 848
+        val grid = BooleanGrid(gridSize)
+        grid.allowAll()
+
+        val result = grid.findArea(requestedArea)
+
+        assertTrue(result is Err)
+    }
+
+    @Test
+    fun perfectArea() {
+        val gridSize = 6 //TODO this may not be right still
+        val requestedArea = 25
+        val grid = BooleanGrid(gridSize)
+        grid.allowAll()
+
+        val result = grid.findArea(requestedArea)
+
+        assertTrue(result is Ok)
+        assertEquals(requestedArea, result.unwrap().first.area(result.unwrap().second))
+    }
+
+    //TODO: Areas still overlap so it isn't perfect. There is some bug that causes areas to ignore the block list
 
     @Test
     fun countOfPosTest() {

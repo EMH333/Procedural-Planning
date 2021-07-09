@@ -5,14 +5,15 @@ fun main(args: Array<String>) {
     println("Hello World")
     val gen = Generator()
     val config = GenerationConfig(
-        5,
+        10,
         arrayOf(
             ZoneConfig(
                 id = "short",
                 max_area = 3
             ),
             ZoneConfig(
-                id = "Normal"
+                id = "Normal",
+                min_area = 2
             )
         ),
         arrayOf(),
@@ -26,6 +27,7 @@ fun main(args: Array<String>) {
     //booleanNoise = groupMap(booleanNoise, 4)
     //println(booleanNoise.findArea(3).unwrap())
     //println(booleanNoise)
+    //booleanNoise.findMaxRect()
 
     EventQueue.invokeLater {
         val game = GraphicalInterface(grid)

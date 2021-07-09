@@ -9,8 +9,8 @@ import kotlin.random.Random
 fun createMap(size: Int, follow: Int = 8, trigger: Int = 0, seed: Int = (Math.random() * 1000000).roundToInt()): BooleanGrid {
     val grid = BooleanGrid(size)
     val random = Random(seed)
-    for (y in 0..size) {
-        for (x in 0..size) {
+    for (y in 0 until size) {
+        for (x in 0 until size) {
             var n = random.nextInt(-100, 100)
 
             if (y >= 1 && grid.getPos(x, y - 1)) {
@@ -33,7 +33,7 @@ fun createMap(size: Int, follow: Int = 8, trigger: Int = 0, seed: Int = (Math.ra
 }
 
 fun groupMap(grid: BooleanGrid, minAround: Int = 4): BooleanGrid {
-    val size = grid.size
+    val size = grid.size - 1
     grid.forEachWithStableGrid { set, pos, oldGrid ->
         var count = if (set) {
             1

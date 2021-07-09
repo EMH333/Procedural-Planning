@@ -27,5 +27,9 @@ internal class GridPosTest {
 
         val pos4 = GridPos(3,3)
         assertEquals(16, pos1.area(pos4))
+
+        assertEquals(30, GridPos(1,29).area(GridPos(30,29)))
+        assertEquals(60, GridPos(1,29).area(GridPos(30,30)))
+        assertEquals(90, GridPos(1,31).area(GridPos(30,29)))
     }
 }

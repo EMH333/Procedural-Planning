@@ -141,7 +141,7 @@ class BooleanGrid(val size: Int, fillFalse: Boolean = true) {
     /**
      * Returns a pair w/ max area and a set of points (lower left, upper right)
      */
-    fun findMaxRect():Pair<Int, Pair<GridPos, GridPos>> {
+    private fun findMaxRect(): Pair<Int, Pair<GridPos, GridPos>> {
         var bestLl = GridPos(0, 0)
         var bestUr = GridPos(-1, -1)
         var bestArea = 0
@@ -164,11 +164,15 @@ class BooleanGrid(val size: Int, fillFalse: Boolean = true) {
                     var p: GridPos
                     do {
                         p = stack.pop()
-                        area = openWidth * (m - p.col)
+                        area = if (openWidth <= 1 && p.col <= 1) {
+                            (openWidth + 1) * (m - p.col + 1)
+                        } else {
+                            (openWidth) * (m - p.col)
+                        }
                         if (area > bestArea) {
                             bestArea = area
                             bestLl = GridPos(n, p.col)
-                            bestUr = GridPos(n - openWidth + 1, m-1)
+                            bestUr = GridPos(n - openWidth + 1, m - 1)
                         }
                         openWidth = p.row
                     } while (cache[m] < openWidth)

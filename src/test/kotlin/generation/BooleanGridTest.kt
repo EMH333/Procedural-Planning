@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 import tiles.GridPos
+import tiles.GridPositionIterator
 import java.lang.Integer.max
 
 internal class BooleanGridTest {
@@ -81,6 +82,37 @@ internal class BooleanGridTest {
     }
 
     //TODO: Areas still overlap so it isn't perfect. There is some bug that causes areas to ignore the block list
+    @Test
+    fun blockedArea(){
+        val gridSize = 4
+        val requestedArea = 3
+        val grid = BooleanGrid(gridSize)
+        grid.allowAll()
+        val block = Pair(GridPos(0,0), GridPos(1,1))
+        grid.addToBlocklist(block.first, block.second)
+
+        val result = grid.findArea(requestedArea)
+
+        assertTrue(result is Ok)
+        assertEquals(requestedArea, result.unwrap().first.area(result.unwrap().second))
+
+        val blockedArea = GridPositionIterator(block.second, block.first).asSequence().toList()
+        val resultArea = GridPositionIterator(result.unwrap().second, result.unwrap().first).asSequence().toList()
+        for (x in blockedArea){
+            assertFalse(resultArea.contains(x))
+        }
+    }
+
+    @Test
+    fun smallGrid(){
+        val grid = BooleanGrid(2)
+        grid.allowAll()
+
+        val result = grid.findArea(4)
+
+        assertTrue(result is Ok)
+        assertEquals(1, result.unwrap().first.area(result.unwrap().second))
+    }
 
     @Test
     fun countOfPosTest() {

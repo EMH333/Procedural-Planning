@@ -9,11 +9,15 @@ fun main(args: Array<String>) {
         arrayOf(
             ZoneConfig(
                 id = "short",
-                max_area = 3
+                max_area = 20
             ),
             ZoneConfig(
                 id = "Normal",
                 min_area = 2
+            ),
+            ZoneConfig(
+                id = "Third",
+                max_area = 4
             )
         ),
         arrayOf(),

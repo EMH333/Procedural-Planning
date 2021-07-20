@@ -10,11 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2005991-b368-47ae-aa47-d4af29c4c23a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/generation/BooleanGridRect.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/generation/BooleanGrid.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/generation/BooleanGrid.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/generation/Generator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/generation/Generator.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/tiles/GridPositionIterator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/tiles/GridPositionIterator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/tiles/Zone.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/tiles/Zone.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/generation/BooleanGridTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/generation/BooleanGridTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -147,6 +147,7 @@
     <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.30326945" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="project.kotlinCompiler" />
   </component>
@@ -161,19 +162,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Kotlin.MainKt">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Tests" type="JUnit" factoryName="JUnit">
       <module name="Procedural-Planning.test" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -244,7 +232,11 @@
       <workItem from="1624161112956" duration="22000" />
       <workItem from="1624170715227" duration="6000" />
       <workItem from="1624210453039" duration="2527000" />
-      <workItem from="1625865063416" duration="1845000" />
+      <workItem from="1625865063416" duration="1963000" />
+      <workItem from="1625867038234" duration="181000" />
+      <workItem from="1626665973094" duration="28000" />
+      <workItem from="1626666012416" duration="674000" />
+      <workItem from="1626748618178" duration="2500000" />
     </task>
     <task id="LOCAL-00001" summary="Start move to Kotlin">
       <created>1613859500535</created>
@@ -358,7 +350,21 @@
       <option name="project" value="LOCAL" />
       <updated>1625865395059</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Improve area selection algorithm">
+      <created>1625866987630</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1625866987630</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Update Kotlin">
+      <created>1625867201519</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1625867201519</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,6 +387,8 @@
     <MESSAGE value="Attempt to intelligently distribute space among the different zones&#10;&#10;Uses a simple algorithm to maximize the size of each zone while respecting the zones it is competing with. There are better ways to do this but it seems to work fine for what I am doing." />
     <MESSAGE value="Solve off by one error in boolean grid&#10;&#10;Still have a problem with larger areas but it's something that can be solved later without much change" />
     <MESSAGE value="Small fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small fixes" />
+    <MESSAGE value="Improve area selection algorithm" />
+    <MESSAGE value="Update Kotlin" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Kotlin" />
   </component>
 </project>

@@ -1,7 +1,6 @@
 package generation
 
 import com.github.michaelbull.result.onFailure
-import com.github.michaelbull.result.recover
 import com.github.michaelbull.result.unwrap
 import tiles.*
 
@@ -10,6 +9,12 @@ class Generator {
         val grid = Grid()
         grid.generateGrid(config.map_size)
 
+        generateZones(grid, config)
+
+        return grid
+    }
+
+    private fun generateZones(grid: Grid, config: GenerationConfig) {
         //very simple zone generation
         val zoneIter = config.zones.iterator()
         val zoneGrid = BooleanGrid(config.map_size)
@@ -38,9 +43,6 @@ class Generator {
 
             //add zone to grid
             for (a in GridPositionIterator(area.first, area.second)) {
-                if (a.col > 50 || a.row > 50) {
-                    println("IDK")
-                }
                 val gridPos = grid.getGridPos(a.col, a.row)
                 if (gridPos.tile == null) {
                     gridPos.tile = Tile(zone = zone)
@@ -57,7 +59,5 @@ class Generator {
             zoneGrid.addToBlocklist(area.first, area.second)
 
         }
-
-        return grid
     }
 }

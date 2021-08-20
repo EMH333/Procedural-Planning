@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Random;
 
 public class Board extends JPanel {
     private int BOARD_WIDTH = 1;
@@ -41,10 +42,10 @@ public class Board extends JPanel {
         return (int) getSize().getHeight() / BOARD_HEIGHT;
     }
 
-    private Tile getTileFromPoint(Point p){
-        int x = p.x/squareWidth();
-        int y = p.y/squareHeight();
-        return grid.getGridPos(x,y).getTile();
+    private Tile getTileFromPoint(Point p) {
+        int x = p.x / squareWidth();
+        int y = p.y / squareHeight();
+        return grid.getGridPos(x, y).getTile();
     }
 
     void start() {
@@ -93,7 +94,7 @@ public class Board extends JPanel {
 
                 if (t != null) {
                     drawSquare(g, j * squareWidth(),
-                            boardTop + i * squareHeight(), colors[Math.abs(t.hashCode()) % 8]);
+                            boardTop + i * squareHeight(), UtilsKt.generateColorFromHashcode(t.hashCode()));//colors[Math.abs(t.hashCode()) % 8]);
                 }
             }
         }
@@ -131,12 +132,12 @@ public class Board extends JPanel {
     }
 
     private void update() {
-
+        /*
         if (isPaused) {
 
             return;
         }
-
+        */
     }
 
     class KeyboardManager extends KeyAdapter {
@@ -158,9 +159,9 @@ public class Board extends JPanel {
         public void mouseClicked(MouseEvent e) {
             Point p = e.getPoint();
             Tile t = getTileFromPoint(p);
-            if(t == null){
+            if (t == null) {
                 statusbar.setText(" ");
-            }else {
+            } else {
                 statusbar.setText(t.toString());
             }
         }

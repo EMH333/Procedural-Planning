@@ -1,5 +1,7 @@
 import tiles.GridPos
+import java.awt.Color
 import kotlin.math.abs
+import kotlin.random.Random
 
 fun pointInsidePolygon(point: GridPos, vs: Array<GridPos>): Boolean {
     // ray-casting algorithm based on
@@ -51,4 +53,13 @@ fun areaOfPolygon(v: List<GridPos>): Double {
         a += v[i].col * v[i + 1].row - v[i + 1].col * v[i].row
     }
     return abs(a + v[n - 1].col * v[0].row - v[0].col * v[n -1].row) / 2.0
+}
+
+fun generateColorFromHashcode(code: Int): Color? {
+    val random = Random(code.toLong())
+    val hue = random.nextFloat()
+    // Saturation between 0.1 and 0.6
+    val saturation = (random.nextInt(5000) + 1000) / 10000f
+    val luminance = 0.9f
+    return Color.getHSBColor(hue, saturation, luminance)
 }

@@ -4,10 +4,7 @@ import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 import com.github.michaelbull.result.Result
 import tiles.GridPos
-import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.math.min
-import kotlin.math.sqrt
 
 class BooleanGrid(val size: Int, fillFalse: Boolean = true) {
     private val grid: ArrayList<ArrayList<Boolean>> = ArrayList()
@@ -112,79 +109,61 @@ class BooleanGrid(val size: Int, fillFalse: Boolean = true) {
         // else resize till we are just above the acceptable area
         val areaGood = fun(): Boolean { return first.area(second) > fixedArea }
         while (areaGood()) {
-            second = second.left()
+            second = second.left(first.col)
             if (!areaGood()) {
                 second = second.right()
                 break
             }
-            second = second.up()
+            second = second.down(1, first.row)
             if (!areaGood()) {
-                second = second.down()
+                second = second.up()
                 break
             }
         }
         return Ok(Pair(first, second))
     }
 
-    private fun updateRectCache(cache: IntArray, col: Int, MaxX: Int): IntArray {
-        for (m in 0 until MaxX) {
-            //if unavailable...
-            if (!getPos(col, m)) {
-                cache[m] = 0
-            } else {
-                cache[m]++
-            }
-        }
-        return cache
-    }
-
     /**
      * Returns a pair w/ max area and a set of points (lower left, upper right)
      */
     private fun findMaxRect(): Pair<Int, Pair<GridPos, GridPos>> {
-        var bestLl = GridPos(0, 0)
+        var maxArea: Int = -1
+        var bestLl = GridPos(-1, -1)
         var bestUr = GridPos(-1, -1)
-        var bestArea = 0
-        val maxX: Int = size - 1
-        val maxY = maxX
-        val stack = Stack<GridPos>()
-        var cache = IntArray(maxX + 1)
-        for (m in 0 until maxX + 1) {
-            cache[m] = 0
-        }
-        for (n in 0 until maxY) {
-            var openWidth = 0
-            cache = updateRectCache(cache, n, maxX)
-            for (m in 0 until maxX + 1) {
-                if (cache[m] > openWidth) {
-                    stack.push(GridPos(openWidth, m))
-                    openWidth = cache[m]
-                } else if (cache[m] < openWidth) {
-                    var area: Int
-                    var p: GridPos
-                    do {
-                        p = stack.pop()
-                        area = if (openWidth <= 1 && p.col <= 1) {
-                            (openWidth + 1) * (m - p.col + 1)
-                        } else {
-                            (openWidth) * (m - p.col)
-                        }
-                        if (area > bestArea) {
-                            bestArea = area
-                            bestLl = GridPos(n, p.col)
-                            bestUr = GridPos(n - openWidth + 1, m - 1)
-                        }
-                        openWidth = p.row
-                    } while (cache[m] < openWidth)
-                    openWidth = cache[m]
-                    if (openWidth != 0) {
-                        stack.push(p)
-                    }
+        forEach { set, pos ->
+            if (set) {
+                val out = recurseFindMaxRect(pos.row, pos.col)
+                if (pos.area(out) > maxArea) {
+                    bestLl = pos
+                    bestUr = out
+                    maxArea = pos.area(out)
                 }
             }
         }
+        return Pair(maxArea, Pair(bestLl, bestUr))
+    }
 
-        return Pair(bestArea, Pair(bestLl.up().right(), bestUr.up().right()))
+    // returns grid position of max area based off offset given
+    private fun recurseFindMaxRect(rowOffset: Int, colOffset: Int): GridPos {
+        var maxHeight = 0
+        for (y in rowOffset + 1 until size) {
+            if (getPos(colOffset, y)) {
+                maxHeight++
+            } else {
+                break
+            }
+        }
+
+        var maxWidth = 0
+        if (colOffset + 1 < size && getPos(colOffset + 1, rowOffset)) {
+            val out = recurseFindMaxRect(rowOffset, colOffset + 1)
+            //if out row is deeper than current then we know we can update width
+            if (out.row >= rowOffset + maxHeight) {
+                maxWidth = out.col - colOffset
+            }
+        }
+
+        return GridPos(rowOffset + maxHeight, colOffset + maxWidth)
     }
 
     private fun isPosInBlocklist(pos: GridPos): Boolean {
@@ -196,6 +175,14 @@ class BooleanGrid(val size: Int, fillFalse: Boolean = true) {
             }
         }
         return false
+    }
+
+    fun forEach(action: (set: Boolean, pos: GridPos) -> Unit) {
+        grid.forEachIndexed { x, it ->
+            it.forEachIndexed { y, b ->
+                action(b, GridPos(y, x))
+            }
+        }
     }
 
     fun forEachWithStableGrid(action: (set: Boolean, pos: GridPos, oldGrid: BooleanGrid) -> Boolean) {

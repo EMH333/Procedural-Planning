@@ -45,6 +45,9 @@ class Generator {
                 if (gridPos.tile == null) {
                     gridPos.tile = Tile(zone = zone)
                 } else {
+                    if(gridPos.tile!!.zone != null) {
+                        throw Error("Zone is already filled")
+                    }
                     gridPos.tile!!.zone = zone
                 }
                 grid.setGridPos(a.col, a.row, gridPos.tile!!)

@@ -57,13 +57,13 @@ data class ZoneConfig(
 
 data class SpaceConfig(
     val id: SpaceID,
-    val min_count: GenCount,
-    val max_count: GenCount,
     val generate_in: HashMap<ZoneID, Priority>,
-    val min_area: Int,
-    val max_area: Int,
-    val must_be_near: HashMap<SpaceID, Priority>,
-    val must_not_be_near: HashMap<SpaceID, Priority>,
+    val min_count: GenCount = 0,
+    val max_count: GenCount = GenCount.MAX_VALUE,
+    val min_area: Int = 0,
+    val max_area: Int = Int.MAX_VALUE,
+    val must_be_near: HashMap<SpaceID, Priority>? = null,
+    val must_not_be_near: HashMap<SpaceID, Priority>? = null,
 )
 
 

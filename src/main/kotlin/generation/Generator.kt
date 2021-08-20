@@ -10,6 +10,7 @@ class Generator {
         grid.generateGrid(config.map_size)
 
         generateZones(grid, config)
+        generateSpaces(grid, config)
 
         return grid
     }
@@ -59,5 +60,13 @@ class Generator {
             zoneGrid.addToBlocklist(area.first, area.second)
 
         }
+    }
+
+    private fun generateSpaces(grid: Grid, config: GenerationConfig) {
+        //TODO
+        // should sort spaces by zones to go into
+        // then for each zone, take the spaces and run them through equal distribution
+        // and then file the zones similar to how the zones fill the grid
+        // special attention will need to be paid to finding valid spots (in the requested zone) to put the spaces
     }
 }

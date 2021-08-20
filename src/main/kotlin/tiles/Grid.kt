@@ -5,7 +5,7 @@ import kotlin.math.max
 import kotlin.math.min
 
 class Grid {
-    public val grid: ArrayList<ArrayList<GridPos>> = ArrayList()
+    private val grid: ArrayList<ArrayList<GridPos>> = ArrayList()
     fun getGridPos(x: Int, y: Int): GridPos {
         return grid[x][y]
     }

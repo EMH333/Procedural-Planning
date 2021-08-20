@@ -20,7 +20,12 @@ fun main(args: Array<String>) {
                 max_area = 4
             )
         ),
-        arrayOf(),
+        arrayOf(
+            SpaceConfig(
+                id = "testSpace",
+                generate_in = mapOf(Pair("Normal", 0)) as HashMap<ZoneID, Priority>
+            )
+        ),
         arrayOf(),
         arrayOf(),
     )

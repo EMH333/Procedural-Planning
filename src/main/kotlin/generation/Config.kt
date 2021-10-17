@@ -50,20 +50,20 @@ data class ZoneConfig(
     val max_count: GenCount = GenCount.MAX_VALUE,
     val min_area: Int = 0,
     val max_area: Int = Int.MAX_VALUE,
-    val must_be_near: HashMap<ZoneID, Priority>? = null,
-    val must_not_be_near: HashMap<ZoneID, Priority>? = null,
+    val must_be_near: Map<ZoneID, Priority>? = null,
+    val must_not_be_near: Map<ZoneID, Priority>? = null,
 )
 
 
 data class SpaceConfig(
     val id: SpaceID,
-    val generate_in: HashMap<ZoneID, Priority>,
+    val generate_in: Map<ZoneID, Priority>,
     val min_count: GenCount = 0,
     val max_count: GenCount = GenCount.MAX_VALUE,
     val min_area: Int = 0,
     val max_area: Int = Int.MAX_VALUE,
-    val must_be_near: HashMap<SpaceID, Priority>? = null,
-    val must_not_be_near: HashMap<SpaceID, Priority>? = null,
+    val must_be_near: Map<SpaceID, Priority>? = null,
+    val must_not_be_near: Map<SpaceID, Priority>? = null,
 )
 
 
@@ -74,8 +74,8 @@ data class RoomConfig(
     val generate_in: HashMap<SpaceID, Priority>,
     val min_area: Int,
     val max_area: Int,
-    val must_be_near: HashMap<RoomID, Priority>,
-    val must_not_be_near: HashMap<RoomID, Priority>,
+    val must_be_near: Map<RoomID, Priority>,
+    val must_not_be_near: Map<RoomID, Priority>,
 )
 
 
@@ -83,7 +83,7 @@ data class FeatureConfig(
     val id: FeatureID,
     val min_count: GenCount,
     val max_count: GenCount,
-    val generate_in: HashMap<RoomID, Priority>,
-    val must_be_near: HashMap<FeatureID, Priority>,
-    val must_not_be_near: HashMap<FeatureID, Priority>,
+    val generate_in: Map<RoomID, Priority>,
+    val must_be_near: Map<FeatureID, Priority>,
+    val must_not_be_near: Map<FeatureID, Priority>,
 )

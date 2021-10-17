@@ -23,7 +23,7 @@ fun main(args: Array<String>) {
         arrayOf(
             SpaceConfig(
                 id = "testSpace",
-                generate_in = mapOf(Pair("Normal", 0)) as HashMap<ZoneID, Priority>
+                generate_in = mapOf(Pair("Normal", 0))
             )
         ),
         arrayOf(),
